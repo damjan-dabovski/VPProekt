@@ -1,0 +1,10 @@
+C:\Users\PC\source\repos\SSE\SSE\bin\Debug\SSE.exe.config
+C:\Users\PC\source\repos\SSE\SSE\bin\Debug\SSE.exe
+C:\Users\PC\source\repos\SSE\SSE\bin\Debug\SSE.pdb
+C:\Users\PC\source\repos\SSE\SSE\obj\Debug\SSE.csprojResolveAssemblyReference.cache
+C:\Users\PC\source\repos\SSE\SSE\obj\Debug\SSE.Form1.resources
+C:\Users\PC\source\repos\SSE\SSE\obj\Debug\SSE.Properties.Resources.resources
+C:\Users\PC\source\repos\SSE\SSE\obj\Debug\SSE.csproj.GenerateResource.Cache
+C:\Users\PC\source\repos\SSE\SSE\obj\Debug\SSE.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\SSE\SSE\obj\Debug\SSE.exe
+C:\Users\PC\source\repos\SSE\SSE\obj\Debug\SSE.pdb
