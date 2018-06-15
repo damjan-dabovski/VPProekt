@@ -8,6 +8,7 @@ namespace SSE {
     public class Ship {
         public Player owner;
         public Tile current;
+        //Should probably be a Dictionary, for directions
         public List<Tile> legalMoves;
 
         public Ship(Player p, Tile t) {
