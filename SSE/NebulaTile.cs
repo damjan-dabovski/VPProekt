@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SSE {
     public class NebulaTile : Tile {
-        public String nebulaColor;
+        public Color nebulaColor;
 
-        public NebulaTile(Image image, String nebulaColor) : base(image) {
+        public NebulaTile(Image image, Color nebulaColor) : base(image) {
             this.nebulaColor = nebulaColor;
             this.type = "nebula";
         }

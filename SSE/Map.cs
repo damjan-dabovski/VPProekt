@@ -16,14 +16,13 @@ namespace SSE
 
         public Map()
         {
-
             //prv red
             Tile tile1 = new PlanetTile(planeta, 1);
-            Tile tile2 = new NebulaTile(nebula, "Red");
+            Tile tile2 = new NebulaTile(nebula, Color.Red);
             tile2.addNeighbour(Tile.Direction.Left, tile1);
 
             //vtor red
-            Tile tile3 = new NebulaTile(nebula, "Green");
+            Tile tile3 = new NebulaTile(nebula, Color.Green);
             Tile tile4 = new PlanetTile(planeta, 0);
             Tile tile5 = new PlanetTile(planeta, 2);
             Tile tile6 = new PlanetTile(planeta, 1);
@@ -46,7 +45,7 @@ namespace SSE
             Tile tile9 = new PlanetTile(planeta, 3);
             Tile tile10 = new PlanetTile(planeta, 3);
             Tile tile11 = new PlanetTile(planeta, 1);
-            Tile tile12 = new NebulaTile(nebula, "Blue");
+            Tile tile12 = new NebulaTile(nebula, Color.Blue);
             Tile tile13 = new PlanetTile(planeta, 0);
             Tile tile14 = new PlanetTile(planeta, 1);
             Tile tile15 = new PlanetTile(planeta, 1);
@@ -75,7 +74,7 @@ namespace SSE
             tile14.addNeighbour(Tile.Direction.Right, tile15);
 
             //cetvrt red
-            Tile tile16 = new NebulaTile(nebula, "Green");
+            Tile tile16 = new NebulaTile(nebula, Color.Green);
             Tile tile17 = new PlanetTile(planeta, 0);
             Tile tile18 = new PlanetTile(planeta, 1);
             Tile tile19 = new PlanetTile(planeta, 2);
@@ -124,7 +123,7 @@ namespace SSE
             Tile tile27 = new PlanetTile(planeta, 1);
             Tile tile28 = new PlanetTile(planeta, 1);
             Tile tile29 = new PlanetTile(planeta, 0);
-            Tile tile30 = new NebulaTile(nebula, "Red");
+            Tile tile30 = new NebulaTile(nebula, Color.Red);
             Tile tile31 = new PlanetTile(planeta, 1);
             Tile tile32 = new PlanetTile(planeta, 2);
             Tile tile33 = new PlanetTile(planeta, 2);
@@ -167,7 +166,7 @@ namespace SSE
             Tile tile34 = new PlanetTile(planeta, 0);
             Tile tile35 = new PlanetTile(planeta, 2);
             Tile tile36 = new PlanetTile(planeta, 1);
-            Tile tile37 = new NebulaTile(nebula, "Green");
+            Tile tile37 = new NebulaTile(nebula, Color.Green);
             Tile tile38 = new PlanetTile(planeta, 3);
             Tile tile39 = new PlanetTile(planeta, 1);
             Tile tile40 = new PlanetTile(planeta, 1);
@@ -216,7 +215,7 @@ namespace SSE
             Tile tile47 = new PlanetTile(planeta, 1);
             Tile tile48 = new PlanetTile(planeta, 2);
             Tile tile49 = new PlanetTile(planeta, 3);
-            Tile tile50 = new NebulaTile(nebula, "Red");
+            Tile tile50 = new NebulaTile(nebula, Color.Red);
 
             tile43.addNeighbour(Tile.Direction.UpLeft, tile34);
             tile43.addNeighbour(Tile.Direction.UpRight, tile35);
@@ -251,7 +250,7 @@ namespace SSE
 
             //osmi red
             Tile tile51 = new PlanetTile(planeta, 3);
-            Tile tile52 = new NebulaTile(nebula, "Blue");
+            Tile tile52 = new NebulaTile(nebula, Color.Blue);
             Tile tile53 = new PlanetTile(planeta, 3);
             Tile tile54 = new PlanetTile(planeta, 0);
             Tile tile55 = new PlanetTile(planeta, 1);
@@ -277,7 +276,7 @@ namespace SSE
 
             //deveti red
             Tile tile56 = new PlanetTile(planeta, 2);
-            Tile tile57 = new NebulaTile(nebula, "Blue");
+            Tile tile57 = new NebulaTile(nebula, Color.Blue);
 
             tile56.addNeighbour(Tile.Direction.Right, tile57);
             tile56.addNeighbour(Tile.Direction.UpLeft, tile53);

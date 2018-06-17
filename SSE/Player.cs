@@ -13,6 +13,8 @@ namespace SSE {
         public int score;
         public int numColonies;
         public int numTradePosts;
+        public String activeColonyType;
+        public int[] ownedNebulaTypes;
 
         public Player(String name, Color color) {
             this.name = name;
@@ -20,6 +22,8 @@ namespace SSE {
             this.score = 0;
             this.numColonies = 16;
             this.numTradePosts = 4;
+            this.activeColonyType = "colony";
+            ownedNebulaTypes = new int[3] { 0, 0, 0 };
         }
     }
 }

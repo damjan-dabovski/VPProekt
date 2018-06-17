@@ -58,5 +58,18 @@ namespace SSE {
             };
             neighbors[direction]=t;
         }
+
+        public List<Tile> getLine(Direction dir) {
+            List<Tile> list = new List<Tile>();
+            Tile temp = this;
+            while (this.neighbors[dir] != null) {
+                if (this.neighbors[dir].colony != null && this.neighbors[dir].colony.owner != this.ship.owner) {
+                    break;
+                }
+                temp = this.neighbors[dir];
+                list.Add(temp);
+            }
+            return list;
+        }
     }
 }

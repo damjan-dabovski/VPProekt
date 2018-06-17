@@ -22,6 +22,12 @@ namespace SSE {
             endTurn();
         }
 
+        public Game(Game g) {
+            this.players = g.players;
+            this.board = g.board;
+            this.activePlayer = g.activePlayer;
+        }
+
         public void endTurn() {
             activePlayer = players.Dequeue();
             players.Enqueue(activePlayer);
