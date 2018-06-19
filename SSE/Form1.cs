@@ -140,4 +140,6 @@ namespace SSE {
             Invalidate(true);
         }
     }
+
+    //Alokin, 19.06. Funkcii za serijalizacija
 }
