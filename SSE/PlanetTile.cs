@@ -41,5 +41,18 @@ namespace SSE {
             return temp;
         }
 
+        public override void draw(Graphics g) {
+            g.DrawImage(this.image, new Rectangle(this.location, this.image.Size));
+            if (isHighlighted) {
+                g.DrawImage(Properties.Resources.tile_highlight, new Rectangle(this.location, this.image.Size));
+            }
+            if (this.ship != null) {
+                this.ship.draw(g, new Point(this.location.X + 5, this.location.Y + 20));
+            }
+            if (this.colony != null) {
+                this.colony.draw(g, new Point(this.location.X + this.image.Width - 35, this.location.Y + 40));
+            }
+        }
+
     }
 }

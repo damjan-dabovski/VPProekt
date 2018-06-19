@@ -34,7 +34,7 @@ namespace SSE {
                 list.AddRange(current.getLine(dir));
             }
             foreach (Tile t in list) {
-                if (t.colony != null && t.colony.owner == this.owner) {
+                if ((t.colony != null && t.colony.owner == this.owner) || (t is HomeworldTile)) {
                     removalList.Add(t);
                 }
             }
@@ -46,13 +46,19 @@ namespace SSE {
         }
 
         public void colonize() {
-            if (this.owner.activeColonyType == "colony") {
+            if (this.owner.numColonies < 1) {
+                this.owner.activeColonyType = "tradepost";
+            }
+            if (this.owner.numTradePosts < 1) {
+                this.owner.activeColonyType = "colony";
+            }
+            if (this.owner.activeColonyType == "colony" && this.owner.numColonies>0) {
                 current.colony = new Colony(this.owner);
                 this.owner.numColonies--;
             }
-            if (this.owner.activeColonyType == "tradepost") {
+            if (this.owner.activeColonyType == "tradepost" && this.owner.numTradePosts>0) {
                 current.colony = new TradingPostColony(this.owner);
-                this.owner.numColonies--;
+                this.owner.numTradePosts--;
             }
 
             foreach (Tile t in current.neighbors.Values) {
@@ -70,6 +76,10 @@ namespace SSE {
             this.legalMoves = getLegalMoves();
             if (t != current && legalMoves.Contains(t)) {
                 Tile temp = current;
+                if(current is HomeworldTile) {
+                    HomeworldTile asHomeworld = (HomeworldTile)current;
+                    asHomeworld.ships.Remove(this);
+                }
                 current = t;
                 t.ship = this;
                 temp.ship = null;

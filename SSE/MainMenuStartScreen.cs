@@ -16,7 +16,6 @@ namespace SSE {
             tutorial = new Button();
             quitGame = new Button();
             this.buttons = new Button[4] { newGame, loadGame, tutorial, quitGame };
-            //TODO image
             this.background = Properties.Resources.mainmenusplash;
             for (int i = 0; i < buttons.Length; i++) {
                 buttons[i].Location = new Point(480, (210 + (125 * i)));

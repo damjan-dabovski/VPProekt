@@ -16,22 +16,32 @@ namespace SSE {
             p2 = new Player(name2, Color.Blue);
             players = new Queue<Player>();
             board = new Map();
-            players.Enqueue(p1);
             players.Enqueue(p2);
-            activePlayer = null;
-            endTurn();
-            //TEST SHIP
-            Ship testShip= new Ship(p1, board.tiles[5][1]);
-            Ship testShip2 = new Ship(p2, board.tiles[3][7]);
-            this.board.tiles[5][1].ship = testShip;
-            this.board.tiles[3][7].ship = testShip2;
-            p2.ships.Add(testShip2);
-            activePlayer.ships.Add(testShip);
-            this.board.tiles[5][1].colony = new Colony(p1);
-            this.board.tiles[5][4].colony = new TradingPostColony(p2);
-            this.board.tiles[3][7].colony = new Colony(p2);
-            /*p1.activeColonyType = "tradepost";
-            testShip.move(this.board.tiles[5][2]);*/
+            players.Enqueue(p1);
+            activePlayer = p1;
+
+            HomeworldTile homeRed = (HomeworldTile)this.board.tiles[5][1];
+            HomeworldTile homeBlue = (HomeworldTile)this.board.tiles[3][7];
+            homeRed.player = p1;
+            homeBlue.player = p2;
+
+            Ship[] redShips = new Ship[4];
+            Ship[] blueShips = new Ship[4];
+
+            for (int i = 0; i < redShips.Length; i++) {
+                redShips[i] = new Ship(p1, homeRed);
+                blueShips[i] = new Ship(p2, homeBlue);
+            }
+
+            foreach (Ship s in redShips) {
+                homeRed.ships.Add(s);
+                p1.ships.Add(s);
+            }
+
+            foreach (Ship s in blueShips) {
+                homeBlue.ships.Add(s);
+                p2.ships.Add(s);
+            }
         }
 
         public Game(Game g) {
@@ -45,8 +55,26 @@ namespace SSE {
         }
 
         public void endTurn() {
-            activePlayer = players.Dequeue();
-            players.Enqueue(activePlayer);
+            List<Tile> allLegalMoves = new List<Tile>();
+            activePlayer = players.Dequeue(); 
+            if (canMakeMove(activePlayer)) {
+                players.Enqueue(activePlayer);
+            } else {
+                activePlayer = players.Dequeue();
+                players.Enqueue(activePlayer);
+            }         
+        }
+
+        public bool canMakeMove(Player p) {
+            List<Tile> allLegalMoves = new List<Tile>();
+            foreach (Ship s in p.ships) {
+                allLegalMoves.AddRange(s.getLegalMoves());
+            }
+            int totalColonies = p.numColonies + p.numTradePosts;
+            if (allLegalMoves.Count < 1 || totalColonies<1) {
+                return false;
+            }
+            return true;
         }
     }
 }

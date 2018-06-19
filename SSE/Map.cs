@@ -87,7 +87,7 @@ namespace SSE
             Tile tile20 = new PlanetTile( 1);
             Tile tile21 = new PlanetTile( 1);
             Tile tile22 = new PlanetTile( 3);
-            Tile tile23 = new PlanetTile( 2);
+            Tile tile23 = new HomeworldTile();
             Tile tile24 = new PlanetTile( 0);
 
             tile16.addNeighbour(Tile.Direction.UpRight, tile8);
@@ -167,14 +167,14 @@ namespace SSE
             tile32.addNeighbour(Tile.Direction.UpRight, tile23);
             tile32.addNeighbour(Tile.Direction.Right, tile33);
 
-            tile33.addNeighbour(Tile.Direction.UpLeft, tile24);
+            tile33.addNeighbour(Tile.Direction.UpLeft, tile23);
             tile33.addNeighbour(Tile.Direction.UpRight, tile25);
 
             tiles[4] = new Tile[9] { tile25, tile26, tile27, tile28, tile29, tile30, tile31, tile32, tile33 };
 
             //sest red
             Tile tile34 = new PlanetTile( 0);
-            Tile tile35 = new PlanetTile( 2);
+            Tile tile35 = new HomeworldTile();
             Tile tile36 = new PlanetTile( 1);
             Tile tile37 = new NebulaTile( Color.Green);
             Tile tile38 = new PlanetTile( 3);
@@ -318,7 +318,7 @@ namespace SSE
 
         public void draw(Graphics g) {
             int overall_x_offset = 44;
-            int row_y_offset = 0;
+            int row_y_offset = 50;
             for (int i = 0; i < tiles.Length; i++) {
                 if (i % 2 == 0) {
                     drawLine(g, tiles[i], 0, row_y_offset);

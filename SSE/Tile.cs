@@ -67,27 +67,27 @@ namespace SSE {
         public List<Tile> getLine(Direction dir) {
             List<Tile> list = new List<Tile>();
             Tile temp = this;
-            while (temp.neighbors[dir] != null) {
-                if (temp.neighbors[dir].colony != null && temp.neighbors[dir].colony.owner != this.ship.owner) {
-                    break;
+            if (!(this is HomeworldTile)) {
+                while (temp.neighbors[dir] != null) {
+                    if (temp.neighbors[dir].colony != null && temp.neighbors[dir].colony.owner != this.ship.owner) {
+                        break;
+                    }
+                    temp = temp.neighbors[dir];
+                    list.Add(temp);
                 }
-                temp = temp.neighbors[dir];
-                list.Add(temp);
+            } else {
+                HomeworldTile asHomeworld = (HomeworldTile)this;
+                while (temp.neighbors[dir] != null) {
+                    if (temp.neighbors[dir].colony != null && temp.neighbors[dir].colony.owner != asHomeworld.player) {
+                        break;
+                    }
+                    temp = temp.neighbors[dir];
+                    list.Add(temp);
+                }
             }
             return list;
         }
 
-        public void draw(Graphics g) {
-            g.DrawImage(this.image, new Rectangle(this.location,this.image.Size));
-            if (isHighlighted) {
-                g.DrawImage(Properties.Resources.tile_highlight, new Rectangle(this.location, this.image.Size));
-            }
-            if (this.ship != null) {
-                this.ship.draw(g,new Point(this.location.X+5,this.location.Y+20));
-            }
-            if (this.colony != null) {
-                this.colony.draw(g, new Point(this.location.X+this.image.Width - 35, this.location.Y + 40));
-            }
-        }
+        public abstract void draw(Graphics g);
     }
 }
