@@ -20,12 +20,19 @@ namespace SSE {
             players.Enqueue(p2);
             activePlayer = null;
             endTurn();
+            //TEST SHIP
+            this.board.tiles[5][1].ship = new Ship(p1, board.tiles[5][1]);
+            activePlayer.ships.Add(this.board.tiles[5][1].ship);
         }
 
         public Game(Game g) {
             this.players = g.players;
             this.board = g.board;
             this.activePlayer = g.activePlayer;
+        }
+
+        public void draw(Graphics g) {
+            this.board.draw(g);
         }
 
         public void endTurn() {

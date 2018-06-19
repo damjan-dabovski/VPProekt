@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SSE {
-    public class Tile {
+    public abstract class Tile {
 
         public enum Direction
         {
@@ -23,37 +23,42 @@ namespace SSE {
         public Colony colony { get; set; }
         public Image image { get; set; }
         public String type { get; set; }
+        public Point location;
+        public bool isHighlighted;
 
-
-        public Tile(Image image) {
+        public Tile() {
             ship = null;
             colony = null;
             neighbors = new Dictionary<Direction, Tile>();
+            location = new Point(0, 0);
             foreach (Direction dir in Enum.GetValues(typeof(Direction))) {
                 neighbors.Add(dir, null);
             }
-            this.image = image;
+            isHighlighted = false;
         }
+
+        public abstract int getPoints();
+
         public void addNeighbour(Direction direction, Tile t){
             //switch case za dodavanje na obostrani sosedstva
             switch (direction) {
                 case Direction.Right:
-                    t.addNeighbour(Direction.Left, this);
+                    t.neighbors[Direction.Left]= this;
                     break;
                 case Direction.Left:
-                    t.addNeighbour(Direction.Right, this);
+                    t.neighbors[Direction.Right]= this;
                     break;
                 case Direction.UpRight:
-                    t.addNeighbour(Direction.DownLeft, this);
+                    t.neighbors[Direction.DownLeft] = this;
                     break;
                 case Direction.UpLeft:
-                    t.addNeighbour(Direction.DownRight, this);
+                    t.neighbors[Direction.DownRight] = this;
                     break;
                 case Direction.DownRight:
-                    t.addNeighbour(Direction.UpLeft, this);
+                    t.neighbors[Direction.UpLeft] = this;
                     break;
                 case Direction.DownLeft:
-                    t.addNeighbour(Direction.UpRight, this);
+                    t.neighbors[Direction.UpRight] = this;
                     break;
             };
             neighbors[direction]=t;
@@ -70,6 +75,16 @@ namespace SSE {
                 list.Add(temp);
             }
             return list;
+        }
+
+        public void draw(Graphics g) {
+            g.DrawImage(this.image, new Rectangle(this.location,this.image.Size));
+            if (isHighlighted) {
+                g.DrawImage(Properties.Resources.tile_highlight, new Rectangle(this.location, this.image.Size));
+            }
+            if (this.ship != null) {
+                this.ship.draw(g,new Point(this.location.X+5,this.location.Y+20));
+            }
         }
     }
 }

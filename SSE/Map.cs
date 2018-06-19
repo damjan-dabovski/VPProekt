@@ -10,23 +10,25 @@ namespace SSE
 {
     public class Map
     {
-        public List<Tile> tiles;
-        Image nebula = Resources.Bubbleicon;
-        Image planeta = Resources.sp_venus_c;
+        public Tile[][] tiles;
 
         public Map()
         {
+            tiles = new Tile[9][];
+
             //prv red
-            Tile tile1 = new PlanetTile(planeta, 1);
-            Tile tile2 = new NebulaTile(nebula, Color.Red);
+            Tile tile1 = new PlanetTile( 1);
+            Tile tile2 = new NebulaTile( Color.Red);
             tile2.addNeighbour(Tile.Direction.Left, tile1);
 
+            tiles[0] = new Tile[9] {null,null,null, tile1, tile2,null,null,null,null };
+
             //vtor red
-            Tile tile3 = new NebulaTile(nebula, Color.Green);
-            Tile tile4 = new PlanetTile(planeta, 0);
-            Tile tile5 = new PlanetTile(planeta, 2);
-            Tile tile6 = new PlanetTile(planeta, 1);
-            Tile tile7 = new PlanetTile(planeta, 0);
+            Tile tile3 = new NebulaTile( Color.Green);
+            Tile tile4 = new PlanetTile( 0);
+            Tile tile5 = new PlanetTile( 2);
+            Tile tile6 = new PlanetTile( 1);
+            Tile tile7 = new PlanetTile( 0);
 
             tile3.addNeighbour(Tile.Direction.UpRight, tile1);
             tile3.addNeighbour(Tile.Direction.Right, tile4);
@@ -40,15 +42,17 @@ namespace SSE
 
             tile6.addNeighbour(Tile.Direction.Right, tile7);
 
+            tiles[1] = new Tile[8] {null,null, tile3, tile4, tile5, tile6, tile7,null };
+
             //tret red
-            Tile tile8 = new PlanetTile(planeta, 2);
-            Tile tile9 = new PlanetTile(planeta, 3);
-            Tile tile10 = new PlanetTile(planeta, 3);
-            Tile tile11 = new PlanetTile(planeta, 1);
-            Tile tile12 = new NebulaTile(nebula, Color.Blue);
-            Tile tile13 = new PlanetTile(planeta, 0);
-            Tile tile14 = new PlanetTile(planeta, 1);
-            Tile tile15 = new PlanetTile(planeta, 1);
+            Tile tile8 = new PlanetTile( 2);
+            Tile tile9 = new PlanetTile( 3);
+            Tile tile10 = new PlanetTile( 3);
+            Tile tile11 = new PlanetTile( 1);
+            Tile tile12 = new NebulaTile( Color.Blue);
+            Tile tile13 = new PlanetTile( 0);
+            Tile tile14 = new PlanetTile( 1);
+            Tile tile15 = new PlanetTile( 1);
 
             tile9.addNeighbour(Tile.Direction.Left, tile8);
             tile9.addNeighbour(Tile.Direction.UpRight, tile3);
@@ -73,16 +77,18 @@ namespace SSE
             tile14.addNeighbour(Tile.Direction.UpLeft, tile7);
             tile14.addNeighbour(Tile.Direction.Right, tile15);
 
+            tiles[2] = new Tile[9] {null,tile8, tile9, tile10, tile11, tile12, tile13, tile14,tile15 };
+
             //cetvrt red
-            Tile tile16 = new NebulaTile(nebula, Color.Green);
-            Tile tile17 = new PlanetTile(planeta, 0);
-            Tile tile18 = new PlanetTile(planeta, 1);
-            Tile tile19 = new PlanetTile(planeta, 2);
-            Tile tile20 = new PlanetTile(planeta, 1);
-            Tile tile21 = new PlanetTile(planeta, 1);
-            Tile tile22 = new PlanetTile(planeta, 3);
-            Tile tile23 = new PlanetTile(planeta, 2);
-            Tile tile24 = new PlanetTile(planeta, 0);
+            Tile tile16 = new NebulaTile( Color.Green);
+            Tile tile17 = new PlanetTile( 0);
+            Tile tile18 = new PlanetTile( 1);
+            Tile tile19 = new PlanetTile( 2);
+            Tile tile20 = new PlanetTile( 1);
+            Tile tile21 = new PlanetTile( 1);
+            Tile tile22 = new PlanetTile( 3);
+            Tile tile23 = new PlanetTile( 2);
+            Tile tile24 = new PlanetTile( 0);
 
             tile16.addNeighbour(Tile.Direction.UpRight, tile8);
             tile16.addNeighbour(Tile.Direction.Right, tile17);
@@ -117,16 +123,18 @@ namespace SSE
 
             tile24.addNeighbour(Tile.Direction.UpLeft, tile15);
 
+            tiles[3] = new Tile[9] { tile16, tile17, tile18, tile19, tile20, tile21, tile22, tile23,tile24 };
+
             //pet red
-            Tile tile25 = new PlanetTile(planeta, 2);
-            Tile tile26 = new PlanetTile(planeta, 2);
-            Tile tile27 = new PlanetTile(planeta, 1);
-            Tile tile28 = new PlanetTile(planeta, 1);
-            Tile tile29 = new PlanetTile(planeta, 0);
-            Tile tile30 = new NebulaTile(nebula, Color.Red);
-            Tile tile31 = new PlanetTile(planeta, 1);
-            Tile tile32 = new PlanetTile(planeta, 2);
-            Tile tile33 = new PlanetTile(planeta, 2);
+            Tile tile25 = new PlanetTile( 2);
+            Tile tile26 = new PlanetTile( 2);
+            Tile tile27 = new PlanetTile( 1);
+            Tile tile28 = new PlanetTile( 1);
+            Tile tile29 = new PlanetTile( 0);
+            Tile tile30 = new NebulaTile( Color.Red);
+            Tile tile31 = new PlanetTile( 1);
+            Tile tile32 = new PlanetTile( 2);
+            Tile tile33 = new PlanetTile( 2);
 
             tile25.addNeighbour(Tile.Direction.UpRight, tile16);
 
@@ -162,16 +170,18 @@ namespace SSE
             tile33.addNeighbour(Tile.Direction.UpLeft, tile24);
             tile33.addNeighbour(Tile.Direction.UpRight, tile25);
 
+            tiles[4] = new Tile[9] { tile25, tile26, tile27, tile28, tile29, tile30, tile31, tile32, tile33 };
+
             //sest red
-            Tile tile34 = new PlanetTile(planeta, 0);
-            Tile tile35 = new PlanetTile(planeta, 2);
-            Tile tile36 = new PlanetTile(planeta, 1);
-            Tile tile37 = new NebulaTile(nebula, Color.Green);
-            Tile tile38 = new PlanetTile(planeta, 3);
-            Tile tile39 = new PlanetTile(planeta, 1);
-            Tile tile40 = new PlanetTile(planeta, 1);
-            Tile tile41 = new PlanetTile(planeta, 0);
-            Tile tile42 = new PlanetTile(planeta, 2);
+            Tile tile34 = new PlanetTile( 0);
+            Tile tile35 = new PlanetTile( 2);
+            Tile tile36 = new PlanetTile( 1);
+            Tile tile37 = new NebulaTile( Color.Green);
+            Tile tile38 = new PlanetTile( 3);
+            Tile tile39 = new PlanetTile( 1);
+            Tile tile40 = new PlanetTile( 1);
+            Tile tile41 = new PlanetTile( 0);
+            Tile tile42 = new PlanetTile( 2);
 
             tile34.addNeighbour(Tile.Direction.UpRight, tile25);
 
@@ -207,15 +217,17 @@ namespace SSE
             tile42.addNeighbour(Tile.Direction.UpLeft, tile32);
             tile42.addNeighbour(Tile.Direction.UpRight, tile33);
 
+            tiles[5] = new Tile[9] { tile34, tile35, tile36, tile37, tile38, tile39, tile40, tile41, tile42 };
+
             //sedmi red
-            Tile tile43 = new PlanetTile(planeta, 1);
-            Tile tile44 = new PlanetTile(planeta, 2);
-            Tile tile45 = new PlanetTile(planeta, 0);
-            Tile tile46 = new PlanetTile(planeta, 1);
-            Tile tile47 = new PlanetTile(planeta, 1);
-            Tile tile48 = new PlanetTile(planeta, 2);
-            Tile tile49 = new PlanetTile(planeta, 3);
-            Tile tile50 = new NebulaTile(nebula, Color.Red);
+            Tile tile43 = new PlanetTile( 1);
+            Tile tile44 = new PlanetTile( 2);
+            Tile tile45 = new PlanetTile( 0);
+            Tile tile46 = new PlanetTile( 1);
+            Tile tile47 = new PlanetTile( 1);
+            Tile tile48 = new PlanetTile( 2);
+            Tile tile49 = new PlanetTile( 3);
+            Tile tile50 = new NebulaTile( Color.Red);
 
             tile43.addNeighbour(Tile.Direction.UpLeft, tile34);
             tile43.addNeighbour(Tile.Direction.UpRight, tile35);
@@ -248,12 +260,14 @@ namespace SSE
             tile50.addNeighbour(Tile.Direction.UpLeft, tile41);
             tile50.addNeighbour(Tile.Direction.UpRight, tile42);
 
+            tiles[6] = new Tile[9] { tile43, tile44, tile45, tile46, tile47, tile48, tile49, tile50, null };
+
             //osmi red
-            Tile tile51 = new PlanetTile(planeta, 3);
-            Tile tile52 = new NebulaTile(nebula, Color.Blue);
-            Tile tile53 = new PlanetTile(planeta, 3);
-            Tile tile54 = new PlanetTile(planeta, 0);
-            Tile tile55 = new PlanetTile(planeta, 1);
+            Tile tile51 = new PlanetTile( 3);
+            Tile tile52 = new NebulaTile( Color.Blue);
+            Tile tile53 = new PlanetTile( 3);
+            Tile tile54 = new PlanetTile( 0);
+            Tile tile55 = new PlanetTile( 1);
 
             tile51.addNeighbour(Tile.Direction.UpLeft, tile44);
             tile51.addNeighbour(Tile.Direction.UpRight, tile45);
@@ -274,9 +288,11 @@ namespace SSE
             tile55.addNeighbour(Tile.Direction.UpLeft, tile48);
             tile55.addNeighbour(Tile.Direction.UpRight, tile49);
 
+            tiles[7] = new Tile[8] { null,tile51, tile52, tile53, tile54, tile55,null,null};
+
             //deveti red
-            Tile tile56 = new PlanetTile(planeta, 2);
-            Tile tile57 = new NebulaTile(nebula, Color.Blue);
+            Tile tile56 = new PlanetTile( 2);
+            Tile tile57 = new NebulaTile( Color.Blue);
 
             tile56.addNeighbour(Tile.Direction.Right, tile57);
             tile56.addNeighbour(Tile.Direction.UpLeft, tile53);
@@ -284,6 +300,39 @@ namespace SSE
 
             tile57.addNeighbour(Tile.Direction.UpLeft, tile54);
             tile57.addNeighbour(Tile.Direction.UpRight, tile55);
+
+            tiles[8] = new Tile[9] {null, null, null, null, tile56, tile57,null, null,null };
+        }
+
+        public void drawLine(Graphics g, Tile[] line, int rxoff, int yoff) {
+            int xoff = 0;
+            int global_x_offset = 44;
+            for (int i = 0; i < line.Length; i++) {
+                if (line[i] != null) {
+                    line[i].location = new Point(global_x_offset+ rxoff + xoff, yoff);
+                    line[i].draw(g);
+                }
+                xoff += 87;
+            }
+        }
+
+        public void draw(Graphics g) {
+            int overall_x_offset = 44;
+            int row_y_offset = 0;
+            for (int i = 0; i < tiles.Length; i++) {
+                if (i % 2 == 0) {
+                    drawLine(g, tiles[i], 0, row_y_offset);
+                } else {
+                    if (i == 5) {
+                        drawLine(g, tiles[i], -44, row_y_offset);
+                    } else {
+                        drawLine(g, tiles[i], overall_x_offset, row_y_offset);
+                    }
+                }
+                row_y_offset += 75;
+            }
+            /*tiles[0][3].location = new Point(10, 10);
+            tiles[0][3].draw(g);*/
         }
     }
 }

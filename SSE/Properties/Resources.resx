@@ -118,10 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Bubbleicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bubbleicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mainmenubutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainmenubutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sp_venus_c" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sp_venus_c.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mainmenusplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainmenusplash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neuropolitical_rg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neuropolitical rg.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="newgame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newgame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship_highlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship_highlight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ship_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ship_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_highlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile_highlight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_nB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile_nB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_nG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile_nG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_nR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile_nR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_p1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile_p1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_p2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile_p2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile_p3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile_p3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tutorial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tutorial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

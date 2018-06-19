@@ -9,7 +9,7 @@ namespace SSE {
     public class Player {
         public String name { get; set; }
         public Color color;
-        //public List<Ship> ships;
+        public List<Ship> ships;
         public int score;
         public int numColonies;
         public int numTradePosts;
@@ -24,6 +24,7 @@ namespace SSE {
             this.numTradePosts = 4;
             this.activeColonyType = "colony";
             ownedNebulaTypes = new int[3] { 0, 0, 0 };
+            this.ships = new List<Ship>();
         }
     }
 }

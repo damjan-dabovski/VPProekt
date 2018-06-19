@@ -90,15 +90,55 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\neuropolitical rg.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Bubbleicon.jpg" />
+    <None Include="Resources\mainmenusplash.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sp_venus_c.jpg" />
+    <None Include="Resources\newgame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainmenubutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tutorial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_nB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_nG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_nR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_p2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_p3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile_highlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ship_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ship_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ship_highlight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,13 +9,22 @@ namespace SSE {
     public class Ship {
         public Player owner;
         public Tile current;
-        //Should probably be a Dictionary, for directions
         public List<Tile> legalMoves;
+        public Image image;
+        public bool isHighlighted;
+        public Point location;
 
         public Ship(Player p, Tile t) {
             this.owner = p;
             this.current = t;
             this.legalMoves = new List<Tile>();
+            this.isHighlighted = false;
+            this.location = new Point(0, 0);
+            if (this.owner.color == Color.Red) {
+                this.image = Properties.Resources.ship_red;
+            } else {
+                this.image = Properties.Resources.ship_blue;
+            }
         }
 
         public List<Tile> getLegalMoves() {
@@ -55,34 +64,28 @@ namespace SSE {
 
         public void move(Tile t) {
             Tile temp = current;
-            if (legalMoves.Contains(t)) {
+            if (t != current && legalMoves.Contains(t)) {
                 t.ship = this;
                 current = t;
                 temp.ship = null;
-            }
-            colonize();
-            //VOODOO AHEAD
-            if (current.type == "planet") {
-                PlanetTile tile = (PlanetTile)current;
-                this.owner.score += tile.numPoints;
-            }
+                colonize();
+                if (current.type == "planet") {
+                    PlanetTile tile = (PlanetTile)current;
+                    this.owner.score += tile.getPoints();
+                }
 
-            if (current.type == "nebula") {
-                NebulaTile tile = (NebulaTile)current;
-                if (tile.nebulaColor == Color.Red)
-                {
-                    this.owner.ownedNebulaTypes[0]++;
-                    this.owner.score += this.owner.ownedNebulaTypes[0] > 1 ? 2 : 3;
+                if (current.type == "nebula") {
+                    NebulaTile tile = (NebulaTile)current;
+                    this.owner.score += tile.getPoints();
                 }
-                else if (tile.nebulaColor == Color.Green)
-                {
-                    this.owner.ownedNebulaTypes[1]++;
-                    this.owner.score += this.owner.ownedNebulaTypes[1] > 1 ? 2 : 3;
-                }
-                else {
-                    this.owner.ownedNebulaTypes[2]++;
-                    this.owner.score += this.owner.ownedNebulaTypes[2] > 1 ? 2 : 3;
-                }
+            }
+        }
+
+        public void draw(Graphics g, Point location) {
+            this.location = location;
+            g.DrawImage(this.image, new Rectangle(location, this.image.Size));
+            if (isHighlighted) {
+                g.DrawImage(Properties.Resources.ship_highlight, new Rectangle(location, this.image.Size));
             }
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SSE {
-    public class MenuState {
+    public class MenuState : State {
         public Button[] buttons;
         public int width, height;
         public Image background;
@@ -18,7 +18,7 @@ namespace SSE {
         }
 
         public void draw(Graphics g) {
-            g.DrawImage(this.background, new Point(0, 0));
+            g.DrawImage(this.background, new Rectangle(new Point(0,0),new Size(this.width,this.height)));
         }
     }
 }
