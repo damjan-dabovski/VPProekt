@@ -13,6 +13,7 @@ namespace SSE {
         public int score;
         public int numColonies;
         public int numTradePosts;
+        public Ship activeShip;
         public String activeColonyType;
         public int[] ownedNebulaTypes;
 
@@ -23,6 +24,7 @@ namespace SSE {
             this.numColonies = 16;
             this.numTradePosts = 4;
             this.activeColonyType = "colony";
+            this.activeShip = null;
             ownedNebulaTypes = new int[3] { 0, 0, 0 };
             this.ships = new List<Ship>();
         }

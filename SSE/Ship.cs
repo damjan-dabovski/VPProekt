@@ -29,13 +29,17 @@ namespace SSE {
 
         public List<Tile> getLegalMoves() {
             List<Tile> list=new List<Tile>();
+            List<Tile> removalList = new List<Tile>();
             foreach (Tile.Direction dir in Enum.GetValues(typeof(Tile.Direction))) {
                 list.AddRange(current.getLine(dir));
             }
             foreach (Tile t in list) {
                 if (t.colony != null && t.colony.owner == this.owner) {
-                    list.Remove(t);
+                    removalList.Add(t);
                 }
+            }
+            foreach (Tile t in removalList) {
+                list.Remove(t);
             }
             this.legalMoves = list;
             return legalMoves;
@@ -54,7 +58,7 @@ namespace SSE {
             foreach (Tile t in current.neighbors.Values) {
                 if (t != null)
                 {
-                    if (t.colony != null && t.colony.type == "tradepost" && t.colony.owner != current.colony.owner)
+                    if (t.colony != null && t.colony.isColony == false && t.colony.owner != current.colony.owner)
                     {
                         t.colony.owner.score++;
                     }
@@ -63,10 +67,11 @@ namespace SSE {
         }
 
         public void move(Tile t) {
-            Tile temp = current;
+            this.legalMoves = getLegalMoves();
             if (t != current && legalMoves.Contains(t)) {
-                t.ship = this;
+                Tile temp = current;
                 current = t;
+                t.ship = this;
                 temp.ship = null;
                 colonize();
                 if (current.type == "planet") {
@@ -76,6 +81,13 @@ namespace SSE {
 
                 if (current.type == "nebula") {
                     NebulaTile tile = (NebulaTile)current;
+                    if (tile.nebulaColor == Color.Red) {
+                        this.owner.ownedNebulaTypes[0]++;
+                    } else if (tile.nebulaColor == Color.Green) {
+                        this.owner.ownedNebulaTypes[1]++;
+                    } else {
+                        this.owner.ownedNebulaTypes[2]++;
+                    }
                     this.owner.score += tile.getPoints();
                 }
             }

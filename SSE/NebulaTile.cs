@@ -23,7 +23,7 @@ namespace SSE {
 
         public override int getPoints() {
             int temp=0;
-            if (this.colony.type == "tradepost") {
+            if (this.colony.isColony == false) {
                 foreach (Tile t in this.neighbors.Values) {
                     if (t != null && t.colony != null && t.colony.owner != this.colony.owner) {
                         temp++;
@@ -34,7 +34,7 @@ namespace SSE {
             } else if (this.nebulaColor == Color.Green) {
                 return this.colony.owner.ownedNebulaTypes[1] > 1 ? 3 : 2;
             } else {
-                return this.colony.owner.ownedNebulaTypes[3] > 1 ? 3 : 2;
+                return this.colony.owner.ownedNebulaTypes[2] > 1 ? 3 : 2;
             }
             return temp;
         }

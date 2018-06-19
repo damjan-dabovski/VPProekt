@@ -30,7 +30,7 @@ namespace SSE {
 
         public override int getPoints() {
             int temp = 0;
-            if (this.colony.type == "tradepost") {
+            if (this.colony.isColony == false) {
                 foreach (Tile t in this.neighbors.Values) {
                     if (t!=null && t.colony != null && t.colony.owner != this.colony.owner) {
                         temp++;

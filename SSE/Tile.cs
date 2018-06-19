@@ -67,11 +67,11 @@ namespace SSE {
         public List<Tile> getLine(Direction dir) {
             List<Tile> list = new List<Tile>();
             Tile temp = this;
-            while (this.neighbors[dir] != null) {
-                if (this.neighbors[dir].colony != null && this.neighbors[dir].colony.owner != this.ship.owner) {
+            while (temp.neighbors[dir] != null) {
+                if (temp.neighbors[dir].colony != null && temp.neighbors[dir].colony.owner != this.ship.owner) {
                     break;
                 }
-                temp = this.neighbors[dir];
+                temp = temp.neighbors[dir];
                 list.Add(temp);
             }
             return list;
@@ -84,6 +84,9 @@ namespace SSE {
             }
             if (this.ship != null) {
                 this.ship.draw(g,new Point(this.location.X+5,this.location.Y+20));
+            }
+            if (this.colony != null) {
+                this.colony.draw(g, new Point(this.location.X+this.image.Width - 35, this.location.Y + 40));
             }
         }
     }

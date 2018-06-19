@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SSE {
     public class TradingPostColony:Colony {
         public TradingPostColony(Player owner):base(owner) {
-            this.type = "tradepost";
+            this.isColony = false;
         }
     }
 }

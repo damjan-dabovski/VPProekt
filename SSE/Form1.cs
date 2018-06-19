@@ -79,6 +79,8 @@ namespace SSE {
         private void startGame(Object sender, EventArgs e) {
             Controls.Clear();
             state = new GameState(new Game());
+            GameState temp = (GameState)state;
+            Controls.Add(temp.p1Score);
             Invalidate(true);
         }
 
@@ -122,19 +124,62 @@ namespace SSE {
             return null;
         }
 
+        private Ship activeShipSwitch(Ship activeShip, Ship newShip) {
+            if (activeShip!=null && newShip != activeShip) {
+                activeShip.isHighlighted = false;
+                foreach (Tile t in activeShip.getLegalMoves()) {
+                    t.isHighlighted = false;
+                }
+            }
+            activeShip = newShip;
+            activeShip.isHighlighted = true;
+            foreach (Tile t in activeShip.getLegalMoves()) {
+                t.isHighlighted = true;
+            }
+            return activeShip;
+        }
+
         private void Form1_MouseUp(object sender, MouseEventArgs e) {
             if (state is GameState) {
+                GameState temp = (GameState)state;
                 Tile clickedTile = getClickedTile(e.X,e.Y);
                 Ship clickedShip = getClickedShip(e.X, e.Y);
-                /*if (clickedTile != null) {
-                    foreach (Tile t in clickedTile.neighbors.Values) {
-                        if (t != null) {
-                            t.isHighlighted = !t.isHighlighted;
+                if (temp.game.activePlayer.activeShip == null) {
+                    if (clickedShip != null) {
+                        /*temp.game.activePlayer.activeShip = clickedShip;
+                        temp.game.activePlayer.activeShip.isHighlighted = true;
+                        foreach (Tile t in temp.game.activePlayer.activeShip.getLegalMoves()) {
+                            t.isHighlighted = true;
+                        }*/
+                        temp.game.activePlayer.activeShip = activeShipSwitch(null, clickedShip);
+                    }
+                } else {
+                    if (clickedShip != null) {
+                        temp.game.activePlayer.activeShip = activeShipSwitch(temp.game.activePlayer.activeShip, clickedShip);
+                    } else if (clickedTile != null) {
+                        if (temp.game.activePlayer.activeShip.getLegalMoves().Contains(clickedTile)) {
+                            temp.game.activePlayer.activeShip.move(clickedTile);
+                            endTurnCleanup();
+                            temp.game.activePlayer.activeShip = null;
+                            temp.game.endTurn();
+                        } else {
+                            endTurnCleanup();
+                            temp.game.activePlayer.activeShip = null;
                         }
-                    };
-                }*/
-                if (clickedShip != null) {
-                    clickedShip.isHighlighted = !clickedShip.isHighlighted;
+                    }
+                }
+                Invalidate(true);
+            }
+        }
+
+        private void endTurnCleanup() {
+            GameState temp = (GameState)state;
+            temp.game.activePlayer.activeShip.isHighlighted = false;
+            foreach (Tile[] t in temp.game.board.tiles) {
+                foreach (Tile tile in t) {
+                    if (tile != null) {
+                        tile.isHighlighted = false;
+                    }
                 }
             }
             Invalidate(true);
