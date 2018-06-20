@@ -28,3 +28,13 @@ C:\Users\Alokin\Desktop\VPProekt\VPProekt\SSE\obj\Debug\SSE.csproj.GenerateResou
 C:\Users\Alokin\Desktop\VPProekt\VPProekt\SSE\obj\Debug\SSE.csproj.CoreCompileInputs.cache
 C:\Users\Alokin\Desktop\VPProekt\VPProekt\SSE\obj\Debug\SSE.exe
 C:\Users\Alokin\Desktop\VPProekt\VPProekt\SSE\obj\Debug\SSE.pdb
+C:\Users\Alokin\Desktop\New folder\SSE\bin\Debug\SSE.exe.config
+C:\Users\Alokin\Desktop\New folder\SSE\bin\Debug\SSE.exe
+C:\Users\Alokin\Desktop\New folder\SSE\bin\Debug\SSE.pdb
+C:\Users\Alokin\Desktop\New folder\SSE\obj\Debug\SSE.csprojResolveAssemblyReference.cache
+C:\Users\Alokin\Desktop\New folder\SSE\obj\Debug\SSE.Form1.resources
+C:\Users\Alokin\Desktop\New folder\SSE\obj\Debug\SSE.Properties.Resources.resources
+C:\Users\Alokin\Desktop\New folder\SSE\obj\Debug\SSE.csproj.GenerateResource.cache
+C:\Users\Alokin\Desktop\New folder\SSE\obj\Debug\SSE.csproj.CoreCompileInputs.cache
+C:\Users\Alokin\Desktop\New folder\SSE\obj\Debug\SSE.exe
+C:\Users\Alokin\Desktop\New folder\SSE\obj\Debug\SSE.pdb

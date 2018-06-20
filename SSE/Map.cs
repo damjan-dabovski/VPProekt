@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace SSE
 {
+    [Serializable()]
     public class Map
     {
         public Tile[][] tiles;

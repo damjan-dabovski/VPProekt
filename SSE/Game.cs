@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SSE {
+    [Serializable()]
     public class Game {
         public Queue<Player> players;
         public Player activePlayer, p1,p2;
@@ -45,6 +46,8 @@ namespace SSE {
         }
 
         public Game(Game g) {
+            this.p1 = g.p1;
+            this.p2 = g.p2;
             this.players = g.players;
             this.board = g.board;
             this.activePlayer = g.activePlayer;

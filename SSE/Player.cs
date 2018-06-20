@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SSE {
+    [Serializable()]
     public class Player {
         public String name { get; set; }
         public Color color;

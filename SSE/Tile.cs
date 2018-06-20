@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SSE {
+    [Serializable()]
     public abstract class Tile {
 
         public enum Direction

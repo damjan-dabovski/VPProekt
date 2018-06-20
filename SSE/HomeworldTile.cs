@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SSE {
+    [Serializable()]
     public class HomeworldTile : Tile {
         public List<Ship> ships;
         public Player player;

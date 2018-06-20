@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SSE {
+    [Serializable()]
     public class PlanetTile : Tile {
         public int numPoints { get; set; }
 

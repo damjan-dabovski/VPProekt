@@ -4,8 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +17,7 @@ namespace SSE {
     public partial class Form1 : Form {
         State state;
         public static PrivateFontCollection font;
+        String FileName;
 
         public Form1() {
             InitializeComponent();
@@ -25,11 +29,12 @@ namespace SSE {
 
         private void initializeFont() {
             font = new PrivateFontCollection();
-            int fontLength = Properties.Resources.neuropolitical_rg.Length;
+            /*int fontLength = Properties.Resources.neuropolitical_rg.Length;
             byte[] fontData = Properties.Resources.neuropolitical_rg;
             System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
             Marshal.Copy(fontData, 0, data, fontLength);
-            font.AddMemoryFont(data, fontLength);
+            font.AddMemoryFont(data, fontLength);*/
+            font.AddFontFile("neuropolitical_rg.ttf");
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -44,11 +49,38 @@ namespace SSE {
             MainMenuStartScreen temp = (MainMenuStartScreen)state;
             temp.newGame.Click += setContextNewGame;
             temp.tutorial.Click += setContextTutorial;
+            temp.loadGame.Click += loadGameClick;
             temp.quitGame.Click += quitGame_Click;
             foreach (Button b in temp.buttons) {
                 b.Font = new Font(font.Families[0], 20, FontStyle.Regular);
                 Controls.Add(b);
             }
+            Invalidate(true);
+        }
+
+        public void loadGameClick(Object sender, EventArgs e) {
+            Controls.Clear();
+            Game pom = loadGame();
+            if (pom == null) {
+                setContextMainMenu();
+                return;
+            }
+            state = new GameState(new Game(pom), ClientSize.Width, ClientSize.Height);
+            GameState temp = (GameState)state;
+            Controls.Add(temp.p1Score);
+            Controls.Add(temp.p2Score);
+            Controls.Add(temp.activePlayerReminder);
+            foreach (Label l in temp.colonyNumbers)
+            {
+                Controls.Add(l);
+            }
+            foreach (Button b in temp.buttons)
+            {
+                Controls.Add(b);
+            }
+            temp.colonyButton.Click += colonyButtonClick;
+            temp.tradeButton.Click += tradeButtonClick;
+            temp.menuButton.Click += menuButtonClick;
             Invalidate(true);
         }
 
@@ -108,7 +140,41 @@ namespace SSE {
             Invalidate(true);
         }
 
-        private void menuButtonClick(Object sender, EventArgs e) {
+        public Game loadGame()
+        {
+
+            if (this.FileName == null)
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Title = "Open your game";
+                dialog.Filter = "Small Star Empire|*.sse";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    this.FileName = dialog.FileName;
+                }
+                else
+                {
+                    return null;
+                }
+                try
+                {
+                    using (FileStream stream = new FileStream(this.FileName, FileMode.Open))
+                    {
+                        IFormatter formatter = new BinaryFormatter();
+                        return (Game)formatter.Deserialize(stream);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error while opening your game");
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            return null;
+        }
+
+
+    private void menuButtonClick(Object sender, EventArgs e) {
             GameState temp = (GameState)state;
             if (temp.menu == null) {
                 temp.menu = new IngameMenu(350, 400);
@@ -118,6 +184,7 @@ namespace SSE {
                 }
                 temp.menu.resume.Click += resumeGame;
                 temp.menu.quitToMain.Click += quitToMainConfirm;
+                temp.menu.saveGame.Click += saveGameButton_Click;
             }
             Invalidate(true);
         }
@@ -178,7 +245,9 @@ namespace SSE {
                         }
                         temp.menu.resume.Click += resumeGame;
                         temp.menu.quitToMain.Click += quitToMainConfirm;
-                    } else {
+                        temp.menu.saveGame.Click += saveGameButton_Click;
+                    }
+                    else {
                         foreach (Button b in temp.menu.buttons) {
                             Controls.Remove(b);
                         }
@@ -187,6 +256,13 @@ namespace SSE {
                 }
                 Invalidate(true);
             }
+        }
+
+        private void saveGameButton_Click(Object sender, EventArgs e)
+        {
+            GameState temp = (GameState)state;
+            temp.saveGame();
+
         }
 
         private void quitToMainConfirm(Object sender, EventArgs e) {

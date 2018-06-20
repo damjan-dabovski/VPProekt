@@ -4,8 +4,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SSE {
+    [Serializable()]
     public class Ship {
         public Player owner;
         public Tile current;
