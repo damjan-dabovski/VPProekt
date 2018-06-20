@@ -246,8 +246,19 @@ namespace SSE {
                         temp.menu.resume.Click += resumeGame;
                         temp.menu.quitToMain.Click += quitToMainConfirm;
                         temp.menu.saveGame.Click += saveGameButton_Click;
-                    }
-                    else {
+                    } else {
+                        if (temp.menu.quitConfirm != null) {
+                            foreach (Button b in temp.menu.buttons) {
+                                Controls.Remove(b);
+                            }
+                            foreach (Button b in temp.menu.quitConfirm.buttons) {
+                                Controls.Remove(b);
+                            }
+                            Controls.Remove(temp.menu.quitConfirm.text);
+                            temp.menu = null;
+                            Invalidate(true);
+                            return;
+                        }
                         foreach (Button b in temp.menu.buttons) {
                             Controls.Remove(b);
                         }
