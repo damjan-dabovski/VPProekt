@@ -169,7 +169,7 @@ namespace SSE
             tile32.addNeighbour(Tile.Direction.Right, tile33);
 
             tile33.addNeighbour(Tile.Direction.UpLeft, tile23);
-            tile33.addNeighbour(Tile.Direction.UpRight, tile25);
+            tile33.addNeighbour(Tile.Direction.UpRight, tile24);
 
             tiles[4] = new Tile[9] { tile25, tile26, tile27, tile28, tile29, tile30, tile31, tile32, tile33 };
 
@@ -217,6 +217,7 @@ namespace SSE
 
             tile42.addNeighbour(Tile.Direction.UpLeft, tile32);
             tile42.addNeighbour(Tile.Direction.UpRight, tile33);
+            //tile42.neighbors[Tile.Direction.DownLeft] = null;
 
             tiles[5] = new Tile[9] { tile34, tile35, tile36, tile37, tile38, tile39, tile40, tile41, tile42 };
 
@@ -260,6 +261,7 @@ namespace SSE
 
             tile50.addNeighbour(Tile.Direction.UpLeft, tile41);
             tile50.addNeighbour(Tile.Direction.UpRight, tile42);
+            //tile50.neighbors[Tile.Direction.DownLeft]= null;
 
             tiles[6] = new Tile[9] { tile43, tile44, tile45, tile46, tile47, tile48, tile49, tile50, null };
 

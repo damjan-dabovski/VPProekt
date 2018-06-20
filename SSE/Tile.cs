@@ -70,8 +70,15 @@ namespace SSE {
             Tile temp = this;
             if (!(this is HomeworldTile)) {
                 while (temp.neighbors[dir] != null) {
-                    if (temp.neighbors[dir].colony != null && temp.neighbors[dir].colony.owner != this.ship.owner) {
+                    if (temp.neighbors[dir].colony != null && temp.neighbors[dir].colony.owner != this.ship.owner)
+                    {
                         break;
+                    }
+                    else if (temp.neighbors[dir] is HomeworldTile) {
+                        HomeworldTile tmp = (HomeworldTile)temp.neighbors[dir];
+                        if (tmp.player != this.colony.owner) {
+                            break;
+                        }
                     }
                     temp = temp.neighbors[dir];
                     list.Add(temp);
