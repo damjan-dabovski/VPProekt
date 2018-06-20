@@ -30,7 +30,7 @@ namespace SSE {
             }
             this.newGame.Text = "New Game";
             this.loadGame.Text = "Load Game";
-            this.tutorial.Text = "Tutorial";
+            this.tutorial.Text = "Rules";
             this.quitGame.Text = "Quit Game";
         }
 
